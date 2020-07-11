@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Bloggum Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
@@ -19,24 +19,17 @@
                 My first website with <strong>Bulma</strong>!
             </p>
         </div>
-        <div class="container is-size-1 mt-4">
+        <div class="container is-size-1 my-4">
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
-    
-        <div class="container">
-            <h2><a class="is-size-3 my-4" href="" >My first post</a></h2>
-            <p class="is-size-4">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta
-                gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-                massa justo sit amet risus.</p>
-            <p class="subtitle mt-2">published: 14.06.2014, 12:14</p>
-        </div>
-    
-        <div class="container">
-            <h2><a class="is-size-3 my-4" href="">My second post</a></h2>
-            <p class="is-size-4">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta
-                gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-            <p class="subtitle mt-2">published: 14.06.2014, 12:14</p>
-        </div>
+
+        {% for post in posts %}
+            <div class="container my-4">
+                <h2><a class="is-size-3" href="">{{ post.title }}</a></h2>
+                <p class="is-size-5 is-justified">{{ post.text }}</p>
+                <p class="subtitle mt-2">published: {{ post.published_date }}</p>
+            </div>
+        {% endfor %}
     </section>
 </body>
 
